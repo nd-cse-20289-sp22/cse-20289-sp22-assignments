@@ -58,7 +58,6 @@ def submit_quiz(assignment, path):
     print('Checking {} quiz ...'.format(assignment))
     response = requests.post(DREDD_QUIZ_URL + assignment, data=json.dumps(answers))
     print_results(response.json())
-    print()
 
     return int(response.json().get('status', 1))
 
