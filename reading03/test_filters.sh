@@ -109,7 +109,7 @@ q6_test() {
 
 SCORE=0
 
-echo "Checking filters.sh ..."
+echo "Checking reading03 filters.sh ..."
 q1_test && SCORE=$((SCORE + 1))
 q2_test && SCORE=$((SCORE + 1))
 q3_test && SCORE=$((SCORE + 1))
