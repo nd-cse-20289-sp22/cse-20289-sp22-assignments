@@ -60,10 +60,10 @@ q2_test() {
 
 q3_output() {
     cat <<EOF
-Leonardo:blue:plowshare
-Donatello:purple:plowshare
-Raphael:red:plowshare
-Michelangelo:orange:plowshare
+Leonardo:plowshare:blue
+Donatello:plowshare:purple
+Raphael:plowshare:red
+Michelangelo:plowshare:orange
 EOF
 }
 
