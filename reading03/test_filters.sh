@@ -86,7 +86,7 @@ EOF
 }
 
 q5_test() {
-    q_test 6 q6_answer q6_output
+    q_test 5 q5_answer q5_output
 }
 
 # Q6
@@ -101,7 +101,7 @@ EOF
 }
 
 q6_test() {
-    q_test 5 q6_answer q6_output
+    q_test 6 q6_answer q6_output
 }
 
 
@@ -109,7 +109,7 @@ q6_test() {
 
 SCORE=0
 
-echo "Checking reading03 filters.sh ..."
+echo "Checking filters.sh ..."
 q1_test && SCORE=$((SCORE + 1))
 q2_test && SCORE=$((SCORE + 1))
 q3_test && SCORE=$((SCORE + 1))
