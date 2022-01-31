@@ -40,70 +40,80 @@ else
 fi
 
 printf "   %-40s ... " Default
-if [ $(./$SCRIPT | wc -l) -ne 988 ]; then
+COUNT=$(./$SCRIPT | wc -l)
+if [ $COUNT -ne 988 -a $COUNT -ne 696 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf "   %-40s ... " "Indiana"
-if [ $(./$SCRIPT -s Indiana | wc -l) -ne 988 ]; then
+COUNT=$(./$SCRIPT -s Indiana | wc -l)
+if [ $COUNT -ne 988 -a $COUNT -ne 696 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
-printf "   %-40s ... " "Notre Dame, Indiana"
-if [ $(./$SCRIPT -s Indiana -c "Notre Dame" | wc -l) -ne 1 ]; then
+printf "   %-40s ... " "Indianapolis, Indiana"
+COUNT=$(./$SCRIPT -s Indiana -c Indianapolis | wc -l)
+if [ $COUNT -ne 50 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf "   %-40s ... " "South Bend, Indiana"
-if [ $(./$SCRIPT -s Indiana -c "South Bend" | wc -l) -ne 18 ]; then
+COUNT=$(./$SCRIPT -s Indiana -c "South Bend" | wc -l)
+if [ $COUNT -ne 18 -a $COUNT -ne 12 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf "   %-40s ... " "California"
-if [ $(./$SCRIPT -s California | wc -l) -ne 2657 ]; then
+COUNT=$(./$SCRIPT -s California | wc -l)
+if [ $COUNT -ne 2657 -a $COUNT -ne 1764 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf "   %-40s ... " "Orange, California"
-if [ $(./$SCRIPT -s California -c "Orange" | wc -l) -ne 11 ]; then
+COUNT=$(./$SCRIPT -s California -c Orange | wc -l)
+if [ $COUNT -ne 11 -a $COUNT -ne 6 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf "   %-40s ... " "Los Angeles, California"
-if [ $(./$SCRIPT -s California -c "Los Angeles" | wc -l) -ne 97 ]; then
-    error "Failed Los Angeles, California Test"
+COUNT=$(./$SCRIPT -s California -c "Los Angeles" | wc -l)
+if [ $COUNT -ne 97 -a $COUNT -ne 71 ]; then
+    error "Failure"
 else
     echo "Success"
 fi
 
 printf "   %-40s ... " "New York"
-if [ $(./$SCRIPT -s "New York" | wc -l) -ne 2205 ]; then
+COUNT=$(./$SCRIPT -s "New York" | wc -l)
+if [ $COUNT -ne 2205 -a $COUNT -ne 1745 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf "   %-40s ... " "Buffalo, New York"
-if [ $(./$SCRIPT -s "New York" -c "Buffalo" | wc -l) -ne 44 ]; then
+COUNT=$(./$SCRIPT -s "New York" -c "Buffalo" | wc -l)
+if [ $COUNT -ne 44 -a $COUNT -ne 43 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf "   %-40s ... " "New York, New York"
-if [ $(./$SCRIPT -s "New York" -c "New York" | wc -l) -ne 162 ]; then
+COUNT=$(./$SCRIPT -s "New York" -c "New York" | wc -l)
+if [ $COUNT -ne 162 -a $COUNT -ne 128 ]; then
     error "Failure"
 else
     echo "Success"
