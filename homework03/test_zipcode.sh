@@ -55,17 +55,17 @@ else
     echo "Success"
 fi
 
-printf "   %-40s ... " "Indianapolis, Indiana"
-COUNT=$(./$SCRIPT -s Indiana -c Indianapolis | wc -l)
-if [ $COUNT -ne 50 ]; then
+printf "   %-40s ... " "South Bend, Indiana"
+COUNT=$(./$SCRIPT -s Indiana -c "South Bend" | wc -l)
+if [ $COUNT -ne 18 -a $COUNT -ne 12 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
-printf "   %-40s ... " "South Bend, Indiana"
-COUNT=$(./$SCRIPT -s Indiana -c "South Bend" | wc -l)
-if [ $COUNT -ne 18 -a $COUNT -ne 12 ]; then
+printf "   %-40s ... " "Indianapolis, Indiana"
+COUNT=$(./$SCRIPT -s Indiana -c Indianapolis | wc -l)
+if [ $COUNT -ne 50 ]; then
     error "Failure"
 else
     echo "Success"
@@ -123,7 +123,7 @@ TESTS=$(($(grep -c Success $0) - 1))
 
 echo
 echo "   Score $(echo "scale=2; ($TESTS - $FAILURES) / $TESTS.0 * 4.0" | bc) / 4.00"
-echo -n "  Status "
+printf "  Status "
 if [ $FAILURES -eq 0 ]; then
     echo "Success"
 else
