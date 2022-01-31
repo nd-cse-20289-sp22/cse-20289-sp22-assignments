@@ -172,7 +172,7 @@ TESTS=$(($(grep -c Success $0) - 1))
 
 echo
 echo "   Score $(echo "scale=2; ($TESTS - $FAILURES) / $TESTS.0 * 4.0" | bc) / 4.00"
-echo -n "  Status "
+printf "  Status "
 if [ $FAILURES -eq 0 ]; then
     echo "Success"
 else
