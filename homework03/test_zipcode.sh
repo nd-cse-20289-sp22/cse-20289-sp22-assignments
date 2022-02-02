@@ -41,7 +41,7 @@ fi
 
 printf "   %-40s ... " Default
 COUNT=$(./$SCRIPT | wc -l)
-if [ $COUNT -ne 988 -a $COUNT -ne 696 ]; then
+if [ $COUNT -ne 988 -a $COUNT -ne 696 -a $COUNT -ne 688 ]; then
     error "Failure"
 else
     echo "Success"
@@ -49,7 +49,7 @@ fi
 
 printf "   %-40s ... " "Indiana"
 COUNT=$(./$SCRIPT -s Indiana | wc -l)
-if [ $COUNT -ne 988 -a $COUNT -ne 696 ]; then
+if [ $COUNT -ne 988 -a $COUNT -ne 696 -a $COUNT -ne 688 ]; then
     error "Failure"
 else
     echo "Success"
@@ -65,7 +65,7 @@ fi
 
 printf "   %-40s ... " "Indianapolis, Indiana"
 COUNT=$(./$SCRIPT -s Indiana -c Indianapolis | wc -l)
-if [ $COUNT -ne 50 ]; then
+if [ $COUNT -ne 50 -a $COUNT -ne 48 ]; then
     error "Failure"
 else
     echo "Success"
@@ -73,7 +73,7 @@ fi
 
 printf "   %-40s ... " "California"
 COUNT=$(./$SCRIPT -s California | wc -l)
-if [ $COUNT -ne 2657 -a $COUNT -ne 1764 ]; then
+if [ $COUNT -ne 2657 -a $COUNT -ne 1764 -a $COUNT -ne 1743 ]; then
     error "Failure"
 else
     echo "Success"
@@ -97,7 +97,7 @@ fi
 
 printf "   %-40s ... " "New York"
 COUNT=$(./$SCRIPT -s "New York" | wc -l)
-if [ $COUNT -ne 2205 -a $COUNT -ne 1745 ]; then
+if [ $COUNT -ne 2205 -a $COUNT -ne 1745 -a $COUNT -ne 1740 ]; then
     error "Failure"
 else
     echo "Success"
@@ -105,7 +105,7 @@ fi
 
 printf "   %-40s ... " "Buffalo, New York"
 COUNT=$(./$SCRIPT -s "New York" -c "Buffalo" | wc -l)
-if [ $COUNT -ne 44 -a $COUNT -ne 43 ]; then
+if [ $COUNT -ne 44 -a $COUNT -ne 43 -a $COUNT -ne 41 ]; then
     error "Failure"
 else
     echo "Success"
