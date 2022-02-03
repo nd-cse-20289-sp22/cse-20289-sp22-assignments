@@ -23,7 +23,7 @@ mkdir $WORKSPACE
 trap "cleanup" EXIT
 trap "cleanup 1" INT TERM
 
-echo "Testing $SCRIPT ..."
+echo "Checking reading05 $SCRIPT ..."
 
 printf " %-40s ... " "exists.py"
 ./$SCRIPT * > /dev/null
@@ -64,6 +64,5 @@ if [ $FAILURES -eq 0 ]; then
     echo "Success"
 else
     echo "Failure"
-
 fi
 echo
