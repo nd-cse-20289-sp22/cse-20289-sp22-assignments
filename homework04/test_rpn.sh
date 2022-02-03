@@ -132,7 +132,7 @@ fi
 rm -f $WORKSPACE/test
 
 printf "   %-40s ... " "Usage"
-./$SCRIPT -h 2>&1 | grep -i usage 2>&1 > /dev/null
+./$SCRIPT -h 2>&1 < /dev/null | grep -i usage 2>&1 > /dev/null
 if [ $? -ne 0 ]; then
     error "Failure"
 else
