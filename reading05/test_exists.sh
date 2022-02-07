@@ -49,8 +49,8 @@ else
     echo "Success"
 fi
 
-printf " %-40s ... " "exists.py /etc/*"
-./$SCRIPT /etc/* > /dev/null
+printf " %-40s ... " "exists.py /lib/*"
+./$SCRIPT /lib/* > /dev/null
 if [ $? -ne 0 ]; then
     error "Failure"
 else
