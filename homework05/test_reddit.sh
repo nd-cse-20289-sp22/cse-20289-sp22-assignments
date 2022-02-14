@@ -253,7 +253,7 @@ else
     echo  "Success"
 fi
 
-printf "   %-40s ... " "voidlinux"
+printf "   %-40s ... " "pop-os"
 diff -W 220 -y <(./$SCRIPT https://yld.me/raw/cIdb) <(pop_output) > $WORKSPACE/log
 if [ $? -ne 0 ]; then
     error "Failure"
@@ -261,7 +261,7 @@ else
     echo  "Success"
 fi
 
-printf "   %-40s ... " "voidlinux (-n 5)"
+printf "   %-40s ... " "pop-os (-n 5)"
 diff -W 220 -y <(./$SCRIPT -n 5 https://yld.me/raw/cIdb) <(pop_limit_output) > $WORKSPACE/log
 if [ $? -ne 0 ]; then
     error "Failure"
@@ -269,7 +269,7 @@ else
     echo  "Success"
 fi
 
-printf "   %-40s ... " "voidlinux (-n 5 -o title)"
+printf "   %-40s ... " "pop-os (-n 5 -o title)"
 diff -W 220 -y <(./$SCRIPT -n 5 -o title https://yld.me/raw/cIdb) <(pop_limit_orderby_output) > $WORKSPACE/log
 if [ $? -ne 0 ]; then
     error "Failure"
@@ -277,7 +277,7 @@ else
     echo  "Success"
 fi
 
-printf "   %-40s ... " "voidlinux (-n 5 -o url -t 20)"
+printf "   %-40s ... " "pop-os (-n 5 -o url -t 20)"
 diff -W 220 -y <(./$SCRIPT -n 5 -o url -t 20 https://yld.me/raw/cIdb) <(pop_limit_orderby_titlelen_output) > $WORKSPACE/log
 if [ $? -ne 0 ]; then
     error "Failure"
@@ -285,7 +285,7 @@ else
     echo  "Success"
 fi
 
-printf "   %-40s ... " "voidlinux (-n 2 -o score -t 40 -s)"
+printf "   %-40s ... " "pop-os (-n 2 -o score -t 40 -s)"
 diff -W 220 -y <(./$SCRIPT -n 2 -o score -t 40 -s https://yld.me/raw/cIdb) <(pop_limit_orderby_titlelen_shorten_output) > $WORKSPACE/log
 if [ $? -ne 0 ]; then
     error "Failure"
