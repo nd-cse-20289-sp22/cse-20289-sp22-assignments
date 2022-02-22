@@ -33,12 +33,13 @@ else
 fi
 
 printf " %-40s ... " "translate2.py"
-./translate2.py | diff -y - <(cat /etc/passwd | cut -d : -f 7 | sort | uniq -c | sort -srn) > $WORKSPACE/test
+./translate2.py | diff -y - <(/bin/ls -ld /etc/* | awk '{print $4}' | sort | uniq) > $WORKSPACE/test
 if [ $? -ne 0 ]; then
     error "Failure"
 else
     echo "Success"
 fi
+
 
 printf " %-40s ... " "translate3.py"
 ./translate3.py | diff -y - <(curl -sLk http://yld.me/raw/fDIO | cut -d , -f 4 | grep -Eo '^M.*' | sort) > $WORKSPACE/test
@@ -49,12 +50,13 @@ else
 fi
 
 printf " %-40s ... " "translate4.py"
-./translate4.py | diff -y - <(/bin/ls -ld /etc/* | awk '{print $4}' | sort | uniq) > $WORKSPACE/test
+./translate4.py | diff -y - <(cat /etc/passwd | cut -d : -f 7 | sort | uniq -c | sort -srn) > $WORKSPACE/test
 if [ $? -ne 0 ]; then
     error "Failure"
 else
     echo "Success"
 fi
+
 
 TESTS=$(($(grep -c Success $0) - 1))
 echo
