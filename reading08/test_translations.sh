@@ -33,7 +33,7 @@ else
 fi
 
 printf " %-40s ... " "translate2.py"
-./translate2.py | diff -y - <(cat /etc/passwd | cut -d : -f 7 | sort | uniq -c | sort -rn) > $WORKSPACE/test
+./translate2.py | diff -y - <(cat /etc/passwd | cut -d : -f 7 | sort | uniq -c | sort -srn) > $WORKSPACE/test
 if [ $? -ne 0 ]; then
     error "Failure"
 else
