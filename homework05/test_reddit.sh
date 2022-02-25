@@ -46,7 +46,7 @@ EOF
 las_test_orderby() {
     ./$SCRIPT -o url linuxactionshow > $WORKSPACE/output || return 1
     [ $(wc -l < $WORKSPACE/output) -eq 29 ] || return 1
-    [ "$(cat $WORKSPACE/output | head -n 2 | tail -n 1 | sed -E 's/^[ \t]+//')" = "http://101.opensuse.org/" ]
+    [ "$(cat $WORKSPACE/output | head -n 2 | tail -n 1 | sed -E 's/^[[:space:]]+//')" = "http://101.opensuse.org/" ]
 }
 
 las_test_titlelen() {
