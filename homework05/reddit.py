@@ -25,8 +25,8 @@ def usage(status=0):
 def load_reddit_data(url):
     ''' Load reddit data from specified URL into dictionary
 
-    >>> len(load_reddit_data('https://reddit.com/r/nba/.json'))
-    27
+    >>> len(load_reddit_data('https://reddit.com/r/nba/.json')) >= 25
+    True
 
     >>> load_reddit_data('linux')[0]['data']['subreddit']
     'linux'
