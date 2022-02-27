@@ -188,6 +188,10 @@ else
     echo "$UNITS / 1.00"
 fi
 
+if [ UNITS != "1.00" ]; then
+    FAILURES=1
+fi
+
 printf "   %-40s ... " "Bad arguments"
 ./$SCRIPT -bad &> /dev/null
 if [ $? -eq 0 ]; then
@@ -298,7 +302,7 @@ TESTS=$(($(grep -c Success $0) - 1))
 echo
 echo "   Score $(echo "scale=2; $UNITS + ($TESTS - $FAILURES) / $TESTS.0 * 4.0" | bc | awk '{printf "%0.2f\n", $1}') / 5.00"
 printf "  Status "
-if [ $UNITS != "1.00" -o $FAILURES -gt 0 ]; then
+if [ $FAILURES -gt 0 ]; then
     error "Failure"
 else
     echo "Success"
