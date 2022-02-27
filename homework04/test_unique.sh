@@ -278,7 +278,7 @@ echo
 echo "   Score $(echo "scale=2; $UNITS + ($TESTS - $FAILURES) / $TESTS.0 * 3.0" | bc) / 5.00"
 printf "  Status "
 if [ $UNITS != "2.00" -o $FAILURES -gt 0 ]; then
-    echo "Failure"
+    error "Failure"
 else
     echo "Success"
 fi
