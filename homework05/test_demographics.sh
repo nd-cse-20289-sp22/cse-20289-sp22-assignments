@@ -214,7 +214,7 @@ fi
 
 if [ $UNITS != "1.00" ]; then
     FAILURES=1
-else
+fi
 
 printf "   %-40s ... " "Bad arguments"
 ./$SCRIPT -bad &> /dev/null
