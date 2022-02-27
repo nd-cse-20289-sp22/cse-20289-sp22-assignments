@@ -129,10 +129,6 @@ else
     echo "$UNITS / 2.00"
 fi
 
-if [ $UNITS != "2.00" ]; then
-    FAILURES=1
-fi
-
 rm -f $WORKSPACE/test
 
 printf "   %-40s ... " "Usage"
@@ -196,7 +192,8 @@ TESTS=$(($(grep -c Success $0) - 1))
 echo
 echo "   Score $(echo "scale=2; $UNITS + ($TESTS - $FAILURES) / $TESTS.0 * 3.0" | bc) / 5.00"
 printf "  Status "
-if [ $FAILURES -gt 0 ]; then
+if [ $UNITS != "2.00" -o $FAILURES -gt 0 ]; then
+    FAILURES=1
     echo "Failure"
 else
     echo "Success"
