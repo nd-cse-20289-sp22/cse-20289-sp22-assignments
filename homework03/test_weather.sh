@@ -176,6 +176,6 @@ printf "  Status "
 if [ $FAILURES -eq 0 ]; then
     echo "Success"
 else
-    echo "Failure"
+    error "Failure"
 fi
 echo
