@@ -42,7 +42,7 @@ else
 fi
 
 printf " %-40s ... " "$SCRIPT on seq 1 1000000 (count)"
-seq 1 1000000 | ./$SCRIPT | wc -w | sed -E 's/^[ \t]+//' | diff -y - <(echo "500000") > $WORKSPACE/test
+seq -f "%.0f" 1 1000000 | ./$SCRIPT | wc -w | sed -E 's/^[ \t]+//' | diff -y - <(echo "500000") > $WORKSPACE/test
 if [ $? -ne 0 ]; then
     error "Failure"
 else
