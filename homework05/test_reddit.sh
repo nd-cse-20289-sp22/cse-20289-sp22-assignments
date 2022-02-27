@@ -303,7 +303,7 @@ echo
 echo "   Score $(echo "scale=2; $UNITS + ($TESTS - $FAILURES) / $TESTS.0 * 4.0" | bc | awk '{printf "%0.2f\n", $1}') / 5.00"
 printf "  Status "
 if [ $FAILURES -gt 0 ]; then
-    error "Failure"
+    echo "Failure"
 else
     echo "Success"
 fi
