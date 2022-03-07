@@ -56,6 +56,13 @@ else
     echo "Success"
 fi
 
+printf " %-40s ... " "$SCRIPT no read() or readlines()"
+if [ ! -x "$SCRIPT" ] || grep -q 'read(' $SCRIPT || grep -q 'readlines(' $SCRIPT; then
+    error "Failure"
+else
+    echo "Success"
+fi
+
 printf " %-40s ... " "$SCRIPT structure"
 case $SCRIPT in
     *evens_fp*)
