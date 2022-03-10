@@ -148,7 +148,7 @@ q6_test && SCORE=$((SCORE + 1))
 q7_test && SCORE=$((SCORE + 1))
 q8_test && SCORE=$((SCORE + 1))
 
-echo "   Score $(echo "scale=2; $SCORE / 8.0 * 1.0" | bc | awk '{printf "%0.2f\n", $1}') / 1.00"
+echo "   Score $(echo "scale=4; $SCORE / 8.0 * 1.0" | bc | awk '{printf "%0.2f\n", $1}') / 1.00"
 echo -n "  Status "
 if [ $SCORE -eq 8 ]; then
     echo Success
