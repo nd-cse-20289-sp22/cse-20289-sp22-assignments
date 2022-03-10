@@ -84,7 +84,7 @@ else
     echo "Success"
 fi
 
-TESTS=$(($(grep -c Success $0) - 1))
+TESTS=$(($(grep -c Success $0) - 2))
 
 echo
 echo "   Score $(echo "scale=2; ($TESTS - $FAILURES) / $TESTS.0 * 1.0" | bc) / 1.00"
