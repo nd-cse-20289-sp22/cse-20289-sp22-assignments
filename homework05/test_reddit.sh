@@ -293,7 +293,7 @@ else
     echo  "Success"
 fi
 
-TESTS=$(($(grep -c Success $0) - 1))
+TESTS=$(($(grep -c Success $0) - 2))
 
 echo
 echo "   Score $(echo "scale=2; $UNITS + ($TESTS - $FAILURES) / $TESTS.0 * 4.0" | bc | awk '{printf "%0.2f\n", $1}') / 5.00"
