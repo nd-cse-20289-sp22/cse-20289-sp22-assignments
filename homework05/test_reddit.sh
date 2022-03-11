@@ -296,7 +296,7 @@ fi
 TESTS=$(($(grep -c Success $0) - 2))
 
 echo
-echo "   Score $(echo "scale=2; $UNITS + ($TESTS - $FAILURES) / $TESTS.0 * 4.0" | bc | awk '{printf "%0.2f\n", $1}') / 5.00"
+echo "   Score $(echo "scale=4; $UNITS + ($TESTS - $FAILURES) / $TESTS.0 * 4.0" | bc | awk '{printf "%0.2f\n", $1}') / 5.00"
 printf "  Status "
 if [ $UNITS != "1.00" -o $FAILURES -gt 0 ]; then
     FAILURES=1
