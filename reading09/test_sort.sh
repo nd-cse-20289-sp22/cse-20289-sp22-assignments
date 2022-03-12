@@ -20,7 +20,7 @@ mkdir $WORKSPACE
 trap "cleanup" EXIT
 trap "cleanup 1" INT TERM
 
-echo "Checking reading 09 sort ..."
+echo "Checking reading09 sort ..."
 
 printf " %-40s ... " "sort 1"
 shuf -i 1-1 | ./sort | diff -y - <(seq 1) > $WORKSPACE/test
