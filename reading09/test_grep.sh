@@ -20,7 +20,6 @@ mkdir $WORKSPACE
 trap "cleanup" EXIT
 trap "cleanup 1" INT TERM
 
-echo
 echo "Checking reading09 grep ..."
 
 printf " %-40s ... " "grep usage (-h)"
