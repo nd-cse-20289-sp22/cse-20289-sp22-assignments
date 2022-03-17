@@ -84,6 +84,7 @@ class StrTestCase(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
+        print()
         print(f'   Score {cls.Points:.2f} / {cls.Total:.2f}')
         print(f'  Status {"Success" if cls.Points >= cls.Total else "Failure"}')
 

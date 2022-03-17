@@ -229,5 +229,14 @@ else
     echo "Success"
 fi
 
-TESTS=$(($(grep -c Success $0) - 1))
-echo "   Score $(echo "scale=2; ($TESTS - $FAILURES) / $TESTS.0 * 3.0" | bc)"
+TESTS=$(($(grep -c Success $0) - 2))
+
+echo
+echo "   Score $(echo "scale=4; ($TESTS - $FAILURES) / $TESTS.0 * 3.0" | bc | awk '{printf "%0.2f\n", $1}') / 3.00"
+printf "  Status "
+if [ $FAILURES -gt 0 ]; then
+    echo "Failure"
+else
+    echo "Success"
+fi
+echo
