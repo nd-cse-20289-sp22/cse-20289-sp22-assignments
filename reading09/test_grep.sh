@@ -37,7 +37,7 @@ else
 fi
 
 printf " %-40s ... " "grep root /etc/passwd"
-valgrind --leak-check=full ./grep root < /etc/passwd &> $WORKSPACE/test
+diff -y <(./grep root < /etc/passwd) <(/bin/grep root </etc/passwd) &> $WORKSPACE/test
 if [ $? -ne 0 ]; then
     error "Failure"
 else
@@ -45,14 +45,15 @@ else
 fi
 
 printf " %-40s ... " "grep root /etc/passwd (valgrind)"
-if [ "$(awk '/ERROR SUMMARY/ {print $4}' $WORKSPACE/test)" -ne 0 ]; then
+valgrind --leak-check=full ./grep root < /etc/passwd &> $WORKSPACE/test
+if [ $? -ne 0 -o "$(awk '/ERROR SUMMARY/ {print $4}' $WORKSPACE/test)" -ne 0 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf " %-40s ... " "grep login /etc/passwd"
-valgrind --leak-check=full ./grep login < /etc/passwd &> $WORKSPACE/test
+diff -y <(./grep login < /etc/passwd) <(/bin/grep login </etc/passwd) &> $WORKSPACE/test
 if [ $? -ne 0 ]; then
     error "Failure"
 else
@@ -60,22 +61,24 @@ else
 fi
 
 printf " %-40s ... " "grep login /etc/passwd (valgrind)"
-if [ "$(awk '/ERROR SUMMARY/ {print $4}' $WORKSPACE/test)" -ne 0 ]; then
+valgrind --leak-check=full ./grep login < /etc/passwd &> $WORKSPACE/test
+if [ $? -ne 0 -o "$(awk '/ERROR SUMMARY/ {print $4}' $WORKSPACE/test)" -ne 0 ]; then
     error "Failure"
 else
     echo "Success"
 fi
 
 printf " %-40s ... " "grep asdf /etc/passwd"
-valgrind --leak-check=full ./grep asdf < /etc/passwd &> $WORKSPACE/test
-if [ $? -eq 0 ]; then
-    error "Failure (Wrong exit code)"
+diff -y <(./grep asdf < /etc/passwd) <(/bin/grep asdf </etc/passwd) &> $WORKSPACE/test
+if [ $? -ne 0 ]; then
+    error "Failure"
 else
     echo "Success"
 fi
 
 printf " %-40s ... " "grep asdf /etc/passwd (valgrind)"
-if [ "$(awk '/ERROR SUMMARY/ {print $4}' $WORKSPACE/test)" -ne 0 ]; then
+valgrind --leak-check=full ./grep asdf < /etc/passwd &> $WORKSPACE/test
+if [ $? -eq 0 -o "$(awk '/ERROR SUMMARY/ {print $4}' $WORKSPACE/test)" -ne 0 ]; then
     error "Failure"
 else
     echo "Success"
