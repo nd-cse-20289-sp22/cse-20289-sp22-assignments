@@ -137,6 +137,7 @@ else
 fi
 printf " %-60s ... " "$PROGRAM (weasel.h4x0r.space 9910, valgrind)" && test_valgrind
 
+echo
 TESTS=$(($(grep -c Success $0) - 2 + $(grep -c test_valgrind $0) - 2))
 echo "   Score $(echo "scale=4; ($TESTS - $FAILURES) / $TESTS.0 * 3.0" | bc | awk '{printf "%0.2f\n", $0}') / 3.00"
 printf "  Status "
