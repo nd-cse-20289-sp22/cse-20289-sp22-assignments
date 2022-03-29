@@ -146,3 +146,4 @@ if [ $FAILURES -eq 0 ]; then
 else
     echo "Failure"
 fi
+echo
