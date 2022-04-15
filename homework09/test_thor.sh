@@ -97,6 +97,24 @@ EOF
 
 }
 
+check_concurrency() {
+    python3 <<EOF
+import sys
+clones = 0
+for line in open('$WORKSPACE/stderr.thor'):
+    if 'CLONE_CHILD' in line:
+        clones += 1
+
+    if 'WEXITSTATUS' in line:
+        sys.exit(1)
+
+    if clones == $HAMMERS:
+        sys.exit(0)
+
+sys.exit(1)
+EOF
+}
+
 # Tests -----------------------------------------------------------------------
 
 export LD_LIBRARY_PATH=$LD_LIBRRARY_PATH:.
@@ -157,6 +175,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -175,6 +195,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -194,6 +216,8 @@ elif [ -s $WORKSPACE/stdout.thor ] ; then
     diff -y $WORKSPACE/stdout.thor $WORKSPACE/stdout.curl
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -209,6 +233,8 @@ elif [ -s $WORKSPACE/stdout.thor ] ; then
     error "Failure (Contents)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -229,6 +255,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -247,6 +275,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -267,6 +297,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -285,6 +317,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -305,6 +339,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -323,6 +359,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -343,6 +381,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
@@ -361,6 +401,8 @@ elif ! check_metrics; then
     error "Failure (Metrics)"
 elif ! check_hammers; then
     error "Failure (Hammers)"
+elif ! check_concurrency; then
+    error "Failure (Concurrency)"
 else
     echo "Success"
 fi
